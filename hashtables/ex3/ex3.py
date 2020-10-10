@@ -1,11 +1,20 @@
+from hashtable import HashTable
+
 def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    result = []
+    cache = {}
+    for array in arrays:
+        for number in array:
+            if number not in cache:
+                cache[number] = 1
+            else:
+                cache[number] += 1
+
+    for key,value in cache.items():
+        if value > 1:
+            result.append(key)
 
     return result
-
 
 if __name__ == "__main__":
     arrays = []
